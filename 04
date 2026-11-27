@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+bool capicua(int n);
+
+int main()
+{
+    int n;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    if (capicua(n))
+    {
+        cout << "Es capicua";
+    }
+    else
+    {
+        cout << "No es capicua";
+    }
+
+    return 0;
+}
+
+bool capicua(int n)
+{
+    int aux = n, inv = 0, d;
+
+    while (n > 0)
+    {
+        d = n % 10;
+        inv = inv * 10 + d;
+        n = n / 10;
+    }
+
+    return aux == inv;
+}
