@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+bool codigoSeguro(int n);
+
+int main()
+{
+    int n;
+
+    cout << "Ingrese el codigo: ";
+    cin >> n;
+
+    if (codigoSeguro(n))
+    {
+        cout << "Codigo seguro";
+    }
+    else
+    {
+        cout << "Codigo inseguro";
+    }
+
+    return 0;
+}
+
+bool codigoSeguro(int n)
+{
+    int d, pares = 0, suma = 0;
+
+    while (n > 0)
+    {
+        d = n % 10;
+        suma = suma + d;
+
+        if (d % 2 == 0)
+        {
+            pares++;
+        }
+
+        n = n / 10;
+    }
+
+    return pares >= 2 && suma > 15;
+}
