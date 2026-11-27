@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+bool validarBase8(int n);
+
+int main()
+{
+    int n;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    if (validarBase8(n))
+    {
+        cout << "Numero valido en base 8";
+    }
+    else
+    {
+        cout << "Numero invalido en base 8";
+    }
+
+    return 0;
+}
+
+bool validarBase8(int n)
+{
+    int d;
+
+    if (n < 0)
+    {
+        return false;
+    }
+
+    while (n > 0)
+    {
+        d = n % 10;
+
+        if (d > 7)
+        {
+            return false;
+        }
+
+        n = n / 10;
+    }
+
+    return true;
+}
