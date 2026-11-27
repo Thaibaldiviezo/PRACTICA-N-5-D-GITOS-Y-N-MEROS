@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool validarPIN(string pin);
+
+int main()
+{
+    string pin;
+
+    cout << "Ingrese su PIN: ";
+    cin >> pin;
+
+    if (validarPIN(pin))
+    {
+        cout << "PIN valido";
+    }
+    else
+    {
+        cout << "PIN invalido";
+    }
+
+    return 0;
+}
+
+bool validarPIN(string pin)
+{
+    if (pin.length() != 4)
+    {
+        return false;
+    }
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (pin[i] < '0' || pin[i] > '9')
+        {
+            return false;
+        }
+
+        if (i > 0 && pin[i] == pin[i - 1])
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
