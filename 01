@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int sumaDigitos(int n);
+
+int main()
+{
+    int n;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    cout << "Suma de digitos: " << sumaDigitos(n);
+
+    return 0;
+}
+
+int sumaDigitos(int n)
+{
+    int suma = 0, d;
+
+    while (n > 0)
+    {
+        d = n % 10;
+        suma = suma + d;
+        n = n / 10;
+    }
+
+    return suma;
+}
