@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+void complemento(int n);
+
+int main()
+{
+    int n;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    cout << "Complemento a 9: ";
+    complemento(n);
+
+    return 0;
+}
+
+void complemento(int n)
+{
+    int d, divisor = 1;
+
+    while (n / divisor >= 10)
+    {
+        divisor = divisor * 10;
+    }
+
+    while (divisor > 0)
+    {
+        d = n / divisor;
+        cout << 9 - d;
+
+        n = n % divisor;
+        divisor = divisor / 10;
+    }
+}
