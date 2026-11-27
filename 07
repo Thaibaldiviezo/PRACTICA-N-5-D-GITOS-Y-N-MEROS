@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+void analizarUso(int n, int &total, int &mayores,
+                 float &promedio);
+
+int main()
+{
+    int n, total, mayores;
+    float promedio;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    analizarUso(n, total, mayores, promedio);
+
+    cout << "Total de horas: " << total << endl;
+    cout << "Apps que superan 5 horas: " << mayores << endl;
+    cout << "Promedio: " << promedio << endl;
+
+    return 0;
+}
+
+void analizarUso(int n, int &total, int &mayores,
+                 float &promedio)
+{
+    int d, c = 0;
+
+    total = 0;
+    mayores = 0;
+
+    do
+    {
+        d = n % 10;
+        total = total + d;
+        c++;
+
+        if (d > 5)
+        {
+            mayores++;
+        }
+
+        n = n / 10;
+
+    } while (n > 0);
+
+    promedio = (float)total / c;
+}
